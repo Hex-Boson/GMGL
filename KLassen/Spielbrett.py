@@ -37,8 +37,8 @@ class Spielbrett:
             time.sleep(verzögerung)      # Wartet kurz für eine flüssige Darstellung
 
 # Beispielhafte Nutzung
-game = Spielbrett()  # Erstellt ein Spielfeld mit 20x10 Zellen
-game.breite=20
-game.hoehe=10
-game.zufaellig_fuellen()   # Füllt das Spielfeld zufällig mit lebenden Zellen
-game.starte_simulation()   # Startet die Simulation
+#game = Spielbrett()  # Erstellt ein Spielfeld mit 20x10 Zellen
+#game.breite=20
+#game.hoehe=10
+#game.zufaellig_fuellen()   # Füllt das Spielfeld zufällig mit lebenden Zellen
+#game.starte_simulation()   # Startet die Simulation
