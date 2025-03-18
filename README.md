@@ -1,1 +1,4 @@
-# GMGL
+GMGL
+
+von Gabriel und Milan
+

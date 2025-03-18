@@ -1,55 +1,37 @@
-from Klassen import Spielbrett
-#from Klassen import Spieler
-#import customtkinter as ctk
+#Klassen importieren
+from Klassen import Spielbrett as sb
+from Klassen import Spieler as sp
+#Bibiliotheken importieren
 import tkinter as tk
+import time
 
-window=tk.Tk()
-window.title("GMGL")
-window.geometry("600x400")
+#Fenster erstellen
+root=tk.Tk()
+root.title("GMGL")
+root.geometry("1280x720")
 
-neuesSpielbrett = tk.Button(root, 
-                   text="neues Spielbrett", 
-                   command=,
-                   activebackground="blue", 
-                   activeforeground="white",
-                   anchor="center",
-                   bd=3,
-                   bg="lightgray",
-                   cursor="hand2",
-                   disabledforeground="gray",
-                   fg="black",
-                   font=("Arial", 12),
-                   height=2,
-                   highlightbackground="black",
-                   highlightcolor="green",
-                   highlightthickness=2,
-                   justify="center",
-                   overrelief="raised",
-                   padx=10,
-                   pady=5,
-                   width=15,
-                   wraplength=100)
-randomBoard = tk.Button(root, 
-                   text="zufälliges Spielbrett", 
-                   command=,
-                   activebackground="blue", 
-                   activeforeground="white",
-                   anchor="center",
-                   bd=3,
-                   bg="lightgray",
-                   cursor="hand2",
-                   disabledforeground="gray",
-                   fg="black",
-                   font=("Arial", 12),
-                   height=2,
-                   highlightbackground="black",
-                   highlightcolor="green",
-                   highlightthickness=2,
-                   justify="center",
-                   overrelief="raised",
-                   padx=10,
-                   pady=5,
-                   width=15,
-                   wraplength=100)
+#Variablen
+spieler=[]
+#Funktionen
+def neuesSpielbrett(hoehe,breite):
+    global spielbrett
+    spielbrett=sb.Spielbrett(hoehe,breite)
+def zufaelligFuellen():
+    spielbrett.zufaellig_fuellen()
 
-window.mainloop()
+#Spiel
+ueberschrift=tk.Label(root,text="GMGL")
+ueberschrift.grid()
+
+#Display
+screen=tk.Canvas(root,width=960,height=540)
+
+#button für neues Spielbrett
+neuesSpielbrettButton = tk.Button(
+                   text="neues Spielbrett",command=neuesSpielbrett(10,20))
+neuesSpielbrettButton.grid()
+#button für zufälliges erschaffen von Leben
+zufaelligFuellenButton=tk.Button(text="zufällig füllen",command=zufaelligFuellen())
+zufaelligFuellenButton.grid()
+
+root.mainloop()
