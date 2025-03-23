@@ -18,9 +18,6 @@ class Spielbrett:
     
     def zuruecksetzen(self):
         self.spielfeld=np.zeros((self.hoehe,self.breite),dtype=int)
-
-def zufaelligFuellen(spielbrett):
-    spielbrett.zufaellig_fuellen()
 #Beispielhafte Nutzung
 #game=Spielbrett()  #Erstellt ein Spielfeld mit 20x10 Zellen
 #game.breite=20

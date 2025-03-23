@@ -10,27 +10,28 @@ class Spieler:
         self.umgebung=[[0,0,0],[0,0,0],[0,0,0]]
 
     def umgebungAktuallisieren(self,spielbrett):
-        for dy in range(-1,2):
-            for dx in range(-1,2):
-                ny,nx=self.y+dy,self.x+dx
-                if 0 <= ny < len(spielbrett) and 0 <= nx < len(spielbrett[0]):
-                    self.umgebung[dy+1][dx+1]=spielbrett[ny][nx]
+        for y in range(-1,2):
+            for x in range(-1,2):
+                ny=self.y+y
+                nx=self.x+x
+                if 0<=ny<len(spielbrett) and 0<=nx<len(spielbrett[0]):
+                    self.umgebung[y+1][x+1]=spielbrett[ny][nx]
                 else:
-                    self.umgebung[dy+1][dx+1]=0  #Randzellen als tot setzen
+                    self.umgebung[y+1][x+1]=0
 
     def umgebungAnalysieren(self):
         anzahlLebendigerSpieler=0
-        for i in range(3):
-            for j in range(3):
-                if (i,j) != (1,1) and self.umgebung[i][j]:  #Sich selbst ignorieren
-                    anzahlLebendigerSpieler += 1
+        for i in range(0,3):
+            for j in range(0,3):
+                if (i,j)!=(1,1) and self.umgebung[i][j]==1:
+                    anzahlLebendigerSpieler+=1
         return anzahlLebendigerSpieler
 
     def update(self,spielbrett):
         self.umgebungAktuallisieren(spielbrett)
         lebendigeSpieler=self.umgebungAnalysieren()
 
-        if lebendigeSpieler >= 4 or lebendigeSpieler <= 1:
-            self.status=0  #Stirbt an Überbevölkerung oder Einsamkeit
-        elif lebendigeSpieler == 3:
-            self.status=1  #Wird geboren oder bleibt am Leben
+        if lebendigeSpieler>=4 or lebendigeSpieler<=1:
+            self.status=0
+        elif lebendigeSpieler==3:
+            self.status=1
