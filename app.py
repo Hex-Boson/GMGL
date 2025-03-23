@@ -130,31 +130,35 @@ ueberschrift.grid(column=0,row=0)
 
 #Canvas erstellen
 screen=tk.Canvas(root,width=canvasBreite,height=canvasHöhe,bg="white")
-screen.grid(row=2,columnspan=8)
+screen.grid(row=2,columnspan=9)
 #Canvas auf Clicken reagieren lassen
 screen.bind("<Button-1>",statusAendern)
 
 #Eingabefeld für spielbrettgröße(Anzahl der spieler)
+eingabeLabelHoehe=tk.Label(root,text="Höhe:")
+eingabeLabelHoehe.grid(column=0,row=4)
 eingabeHoehe=tk.Entry(root,width=5,textvariable=textfeldHoehe)
-eingabeHoehe.grid(column=0,row=4)
+eingabeHoehe.grid(column=1,row=4)
+eingabeLabelBreite=tk.Label(root,text="Breite:")
+eingabeLabelBreite.grid(column=2,row=4)
 eingabeBreite=tk.Entry(root,width=5,textvariable=textfeldBreite)
-eingabeBreite.grid(column=1,row=4)
+eingabeBreite.grid(column=3,row=4)
 
 #Buttons
 #Button für neues Spielbrett
 neuesSpielbrettButton=tk.Button(text="Neues Spielbrett",command=neuesSpielbrett)
-neuesSpielbrettButton.grid(column=2,row=4)
+neuesSpielbrettButton.grid(column=4,row=4)
 #Button um Spielfeld zufällig zu Beleben
 zufaelligFuellenButton=tk.Button(text="Zufällig füllen",command=zufaelligFuellen)
-zufaelligFuellenButton.grid(column=3,row=4)
+zufaelligFuellenButton.grid(column=5,row=4)
 #Button zum stoppen der Animation
 stoppKnopf=tk.Button(text="Animation stoppen",command=animationAbbrechen)
-stoppKnopf.grid(column=5,row=4)
+stoppKnopf.grid(column=7,row=4)
 #Button zum starten der Animation
 startKnopf=tk.Button(text="Animation starten",command=animationStarten)
-startKnopf.grid(column=6,row=4)
+startKnopf.grid(column=8,row=4)
 #Button zum bearbeiten mit der Maus
 bearbeitenButton=tk.Button(text="Pinsel",command=bearbeitenSchalter)
-bearbeitenButton.grid(column=4,row=4)
+bearbeitenButton.grid(column=6,row=4)
 
 root.mainloop()
